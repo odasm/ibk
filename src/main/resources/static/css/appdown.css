@@ -1,0 +1,353 @@
+/*二维码下载app*/
+.ewm-b.ewm {
+    left: 50%;
+    top: 127px;
+    margin-left: -191px;
+}
+
+.ewm {
+    position: absolute;
+    z-index: 1;
+    left: 132px;
+    top: 363px;
+}
+
+.ewm-img {
+    width: 147px;
+    height: 146px;
+    float: left;
+}
+
+a.ewm-ios, a.ewm-android {
+    display: block;
+    width: 209px;
+    height: 61px;
+    border-radius: 4px;
+    line-height: 61px;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 54px;
+    background-position: 10px center;
+}
+
+a.ewm-ios:hover, a.ewm-android:hover {
+    text-decoration: none;
+}
+
+a.ewm-ios {
+    background: #417bdc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAmCAMAAACS/WnbAAAAilBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////2N2iNAAAALXRSTlMAzHAU48SWgnh0ZE9FB/r07+ffvrmjn4p9YDw2J9mzrpqSXFIiHBkD6NOGPi1Duf3iAAAA80lEQVQ4y4XS15KCQBCF4UYyEiSjYk6b+v1fb4fuUvbCM/vdnl+Lmhl6Jzs7LVksPeaGsIiN3vJ7noxwz2R3CFpIcMVBNe0J3l0zl0uyBP4hfjtsvrqu35BKgv2+DUeapTULP7rTNqhYtffn3vNLXvKs+NY9YCid9jPeP+WrCrjrecZwX2USODBY68nk8A9IXBg5PW8PSTQI/wsiGEQarGHga7Bl6KZvcAWDjoTPkL6sE2OXKRjZIvgxxc5WhHqWUO6a4MHYEV+Hckl4aI/JfpqVzvhKr/RSgyc3a1h4x2Fo5g/4a9gV3iF9kHFbOB9lnZL4BcrXgGqgKcuBAAAAAElFTkSuQmCC) no-repeat;
+    background-position: 10px center;
+    margin-bottom: 15px;
+}
+
+.ewm-txt {
+    overflow: hidden;
+    padding-left: 27px;
+    padding-top: 3px;
+    display: inline-block;
+    font-size: 0;
+}
+
+a.ewm-android {
+    background: #73c75a url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAmCAMAAACS/WnbAAAAk1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////ROyVeAAAAMHRSTlMABsorsPK4qc+/1MMjUPcuEfPv6uOkkH9IAtuyn15XQDEfHAu5l4V1ZEs5GOa6iG0wIWHSAAABGUlEQVQ4y+3TyXKCQBRA0euUiIAgqBBnxdkM7/+/Lv0wFEU3WWWbs3hdpZdqChoqj8mFWp5sscSpbOBw24QB3EUibB1fzq+ivLMsDrgeUtviiodSm0Y49P9aUmD5EhmHJ1F+aOKZfYtjkQEbUSv6Zu5pyMWYmKpcdVxoOIltSYPnBL51D676AeQx7Hu2PZAHwC6VNGIkthGx+TF87u5zdAKPTzPHMCrrvhO8sNQFumZ2WwN9t4P/oAr0LA5bg379qBcsneDITBdYm7nGa3lZOzPnQJiFupFtCPfsSmXtBBlNQVRueevtUr086uHINOjA1CwftJhrEPCmgf+n4P23YPUTDMpD2uKqX2XxPOYz2qySxRY4dBOvoPINWbFynJbNYvcAAAAASUVORK5CYII=) no-repeat;
+    background-position: 10px center;
+}
+
+.section-num {
+    position: relative;
+    left: 50%;
+    margin-left: -42.5px;
+    text-align: center;
+    width: 85px;
+    height: 100px;
+    font-size: 53px;
+    color: #fff;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAABMCAMAAAAr8gs7AAABLFBMVEUAAAD/1wD/0QL+vQv/zQT+wwn/yAb+sRH9nxj+phX+qBT9nxj9nxj9oRf9oBf9nhj+oRf9oBf+oRf9oRf+ugz9oRf+uQ39nhj9nhj+sRD+qhT9pxX+sRD+vAz+rRL9ohf+tw7+shD/2AD+tw7+wgn+vAz+uQ3/2AD+ugz/2AD9nRn+xgj9pxX9ohf9oBf/2AD+wgn+rhL+uQ3+wwn+vwr+tQ/+sBH+uwz/2AD/2AD9nBn+uA3+tA/+tg7+ugz+sRD/ygb+sBH+wgn+rBL+vgv9oxb9phX+qxP/zgT+vwr/zAX9nhj9qRP+vAz9qBT/0QP/1QH+sw/+wQn+yAb+rhL+xQj+xAj+xgf9pRX/0wL9ohf+xwf9oRf9oBj/zQT/0AP/1AH+vwv/2AD/1wD4dqUBAAAAO3RSTlMAVVVVVVVVBowkDfry5racdGJJODYZ3tvHnUH29vbh1sm3pKOgSxn85uPg4MelpZmUjIyMdnViYkQ5Mc4tcTMAAAKhSURBVFjDrdWJWhJhFMbx0zqASy5ogVup2b7vAZJKKhgtEGhoQHX/99CLM3Cc5zDfzLe8F/B7HuZ/ZiDs/SW5y6Fd5V0f7dpoVy4uT4N563+D/cO+++v3+7+wb1iv1zvEut1urVb7NFizeXp6fNxqtdu7WKNRrVb/VCqVen0bKxQ2PKjPEqK1aBQmo4VSjuhDHHqoRGEyChNoqZSldT20yWjo1zOKbdADRoXJaPwjZbRYXKR70WjPEC3+IHfxYfooVNNOHF+iUF3FZ7RcJqfxBybQMrmM76OBatlJojtkGl92YnSH3MY/N6Hqog1V/AD9SZEom0N0Vx2fUahOXtIwukdO4/vmHtQI1LATUIzs40v0gHRfUiyiE6NQbeNLFKp9fIl+IbfxYQKFyqhlJ0a/ktYXWqLy1wOFahtfolB14m8nQ/f3yTq+RKE6jQ8TKFT7+BI9IY34BXV8RqEa/T1HozBPPtO4+G3T+AEK1To+TEZhYpQcLanjMwrVPr5EO+QuPqNQXcb3zc4Z2b+k3GmIQjVCfTMK/U3j0YphfJhAoVrHl+gR2ceX6BE5jQ8TKFRn8RmF6i7+2RCF2rLuJNEJeqSBxnfy95A2uZNx/A6j57tBWZgm8UHK+ME+Er1yFz9Yioi857FoXCeJYncXXcXHbs5RMO/1iov42OSMR7ytzXpF/yWV8RcovOxt6/i35knu3X2r+FOzNHaZlyvG8SdSGYpa+o5h/Ok0KYYr0/tC8zUp571Z1vhC8zXFbSunEZ+vSU5cGaMH6vi4puR7u5qoE65Ja5kXy3Go6poUVxYTH9dksrlVRXxck+G8maWI+HxNJlvIjY2Pa7Lb/GPxSHFN9pudCqG4JifLpJZGKF+T/dLTwSPFNblc/sna5NrTPCXbf4PoGdDSD6HXAAAAAElFTkSuQmCC) no-repeat;
+    margin-top: -24px;
+    padding-bottom: 24px;
+}
+
+.section-wrap {
+    width: 1230px;
+    margin: 0 auto;
+}
+
+.section-txt h2 {
+    font-size: 40px;
+    color: #c98b2a;
+    line-height: 1.5;
+    padding-bottom: 5px;
+}
+
+.section-txt p {
+    font-size: 30px;
+    color: #40484e;
+    line-height: 1.5;
+}
+
+.section-img {
+    position: absolute;
+}
+
+.section-line {
+    position: absolute;
+}
+
+.section-in {
+    position: relative;
+}
+
+/*banner部分*/
+.appdownBan {
+    position: relative;
+    height: 636px;
+    overflow: hidden;
+}
+
+.appdownBan-img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -960px;
+    height: 636px;
+    width: 1920px;
+    max-width: none;
+}
+
+.appdownBan-txt {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.product-common {
+    background-color: #f4f5f8;
+}
+
+/*第一部分*/
+.appdownOne {
+    position: relative;
+    background: #fff;
+    border-top: 24px solid #f4f5f8;
+}
+
+.appdownOne .section-txt {
+    position: absolute;
+    right: 130px;
+    top: 148px;
+    text-align: right;
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+    -webkit-transition: all 1s .5s;
+    transition: all 1s .5s;
+}
+
+.appdownOne.animate .section-txt {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+
+.appdownOne .section-line {
+    width: 449px;
+    height: 271px;
+    left: 292px;
+    top: 175px;
+    background: url(../images/appdown/appdown-one-l.png) no-repeat;
+    opacity: 0;
+    -webkit-transform: translate3d(-40px, 50px, 0);
+    transform: translate3d(-40px, 50px, 0);
+    -webkit-transition: all 1s .2s;
+    transition: all 1s .2s;
+}
+
+.appdownOne.animate .section-line {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownOne .section-img {
+    width: 383px;
+    height: 435px;
+    top: 30px;
+    left: 120px;
+    background: url(../images/appdown/appdown-one.png) no-repeat;
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -0, 0);
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.appdownOne.animate .section-img {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownOne .section-in {
+    height: 576px;
+}
+
+/*第二部分*/
+.appdownTwo {
+    position: relative;
+    background-color: #f4f5f8;
+    border-top: 24px solid #fff;
+}
+
+.appdownTwo .section-txt {
+    position: absolute;
+    left: 120px;
+    top: 164px;
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -0, 0);
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transition: all 1s .3s;
+    transition: all 1s .3s;
+}
+
+.appdownTwo.animate .section-txt {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownTwo .section-line {
+    width: 535px;
+    height: 333px;
+    left: 458px;
+    top: 182px;
+    background: url(../images/appdown/appdown-two-l.png?dd) no-repeat;
+    opacity: 0;
+    -webkit-transform: translate3d(50px, 50px, 0);
+    transform: translate3d(50px, 50px, 0);
+    -webkit-transition: all 1s .1s;
+    transition: all 1s .1s;
+}
+
+.appdownTwo.animate .section-line {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownTwo .section-img {
+    width: 399px;
+    height: 459px;
+    top: 42px;
+    right: 110px;
+    background: url(../images/appdown/appdown-two.png) no-repeat;
+    opacity: 0;
+    -webkit-transform: translate3d(50%, -0, 0);
+    transform: translate3d(50%, 0, 0);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.appdownTwo.animate .section-img {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownTwo .section-in {
+    height: 598px;
+}
+
+
+/*第三部分*/
+.appdownThree {
+    position: relative;
+    border-top: 24px solid #f4f5f8;
+    background-color: #fff;
+}
+
+.appdownThree .section-txt {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: translate3d(0, -60px, 0);
+    transform: translate3d(0, -60px, 0);
+    -webkit-transition: all 1s .2s;
+    transition: all 1s .2s;
+}
+
+.appdownThree.animate .section-txt {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownThree .section-line {
+    width: 400px;
+    height: 303px;
+    left: 541px;
+    top: 60px;
+    background: url(../images/appdown/appdown-three-l.png) no-repeat;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 60px, 0);
+    transform: translate3d(0, 60px, 0);
+    -webkit-transition: all 1s .4s;
+    transition: all 1s .4s;
+}
+
+.appdownThree.animate .section-line {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownThree .section-img {
+    width: 970px;
+    height: 252px;
+    top: 330px;
+    left: 115px;
+    background: url(../images/appdown/appdown-three.png) no-repeat;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100px, 0);
+    transform: translate3d(0, 100px, 0);
+    -webkit-transition: all 1s .5s;
+    transition: all 1s .5s;
+}
+
+.appdownThree.animate .section-img {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.appdownThree .section-in {
+    height: 623px;
+}
+
+
+/*第四部分*/
+.appdownBottom {
+    position: relative;
+    height: 690px;
+    background: url(../images/appdown/appdown-bottom.jpg) no-repeat center top;
+}
+
+.appdownBottom h2 {
+    font-size: 54px;
+    color: #fff;
+    text-align: center;
+    padding-top: 170px;
+}
+
+.appdownBottom h2 span {
+    font-size: 30px;
+    color: #fff
+}
+
+.appdownBottom h2 span.f60 {
+    font-size: 60px;
+}
+

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ibk
+    username: ibk
+    password: i123b456k
+    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  thymeleaf:
+    enabled: true
+    cache: false
