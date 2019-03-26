@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.ajzhan.com/passport/reg -->
+<html class="gr__ajzhan_com" xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>爱记账-注册-永久免费的在线记账本</title>
+    <meta name="description" content="爱记账是永久免费的在线记账网站，为爱好理财的朋友们提供免费的记账服务，通过在线理财的方式使生活变得更美好。">
+    <meta name="keywords" content="记账,记账本,理财,消费记录,在线记账,在线理财,白领记账,白领理财,爱记账,i记账">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" href="../static/css/global.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reg.css}">
+    <link rel="stylesheet" th:href="@{/js/member/layer-v3.0.3/skin/default/layer.css}" id="layuicss-skinlayercss">
+    <link rel="icon"
+          href="data:image/png;base64,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"
+          type="image/png" sizes="256x256">
+    <link rel="icon" href="https://www.ajzhan.com/favicon.ico">
+    <script th:src="@{https://hm.baidu.com/hm.js}"></script>
+    <script th:src="@{http://libs.baidu.com/jquery/2.0.0/jquery.min.js}" charset="utf-8"></script>
+</head>
+<body data-gr-c-s-loaded="true" style="">
+<div id="header">
+    <div class="header-cen">
+        <a href="https://www.ajzhan.com/"><img th:src="@{/images/LOGO2.png}" alt="爱记账"></a>
+        <span class="header-line"></span>
+        <span class="header-name">注册</span>
+        <span class="fr header-loginlink">已有账号？  <a href="javascript:;" class="login-showpan">登录</a></span>
+    </div>
+</div>
+<div id="main">
+    <div class="w720 mgc pb100">
+        <ul class="u-step fix pt50" id="j_step">
+            <li class="cur"><span class="u-step_l"><i>1</i></span>验证账号</li>
+            <li class="u-step-line"></li>
+            <li class=""><span class="u-step_l"><i>2</i></span>设置密码</li>
+            <li class="u-step-line"></li>
+            <li><span class="u-step_l"><i>3</i></span>完成</li>
+        </ul>
+        <div class="regmain-form">
+            <ul id="regmain-one" style="display:block;">
+                <li class="fix">
+                    <div class="w160 fl"><input type="text" class="input" maxlength="4" name="imgcode" id="j_imgcode"
+                                                placeholder="图片验证码"></div>
+                    <img th:src="@{/common/captcha}" id="captchaimg" alt="点击刷新验证码" class="regmain-captcha fr"
+                         maxlength="4"
+                         style="width:81px;height: 31px;border:1px solid #a6866a;margin-top: 7px;float: right;cursor: pointer;"
+                         onclick="document.getElementById('captchaimg').src='/common/captcha?tm='+Math.random()">
+                </li>
+                <li><input type="tel" class="input" name="telephone" id="j_tel" maxlength="11" placeholder="输入您的邮箱号码">
+                    <span class="regmain-tip" id="j_tip"></span>
+                </li>
+                <li>
+                    <div class="regmain-check">
+                        <span class="checkbox cur" id="j_checkbox"></span>&nbsp;&nbsp;
+                        同意<a href="javascript:;" class="blue" id="j_xieyiclick">《爱记账用户协议》</a></div>
+                </li>
+                <li><a href="javascript:;" class="botton" id="j_submit">获取邮箱验证码</a></li>
+            </ul>
+            <div id="regmain-two" style="display: none" class="setpassw">
+                <p>邮件验证码已发送至 <span id="j_telH"></span></p>
+                <div class="tip2"></div>
+                <ul>
+                    <li class="fix">
+                        <div class="verification-wrap fix">
+                            <input type="text" class="verification inputlight " id="j_msgcode" name="megnum"
+                                   placeholder="邮件验证码" maxlength="4">
+                            <span class="verification-count"><span id="countDown">60s</span>后重发</span>
+                            <span class="verification-again" id="getCode">发送</span>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="password" style="height: 0px;position: absolute;">
+                        <input type="text" onfocus="this.type ='password';" maxlength="14"
+                               placeholder="设置6-14位字符的密码" class="input" id="j_password" name="password"></li>
+                    <li>
+                        <a href="javascript:" class="botton" id="j_btn">确定</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="regmain-three" style="display: none" class="success">
+                <h2>注册成功 &nbsp;</h2>
+                <p><span>3</span>s后自动跳转</p>
+                <a th:href="@{/user/index}" class="botton w270">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="footerCon">
+        <div class="footnav">
+            <ul>
+                <li>
+                    <a href="https://www.ajzhan.com/index/about" class="footit">关于我们</a><br>
+                    <a href="https://www.ajzhan.com/index/product">产品介绍</a><br>
+                    <a href="https://www.ajzhan.com/index/help">帮助中心</a>
+                </li>
+                <li>
+                    <a href="https://www.ajzhan.com/index/about/cooperation" class="footit">联系我们</a><br>
+                    <a href="https://www.ajzhan.com/index/about/link">友情链接</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footewm">
+            <ul class="footpublic">
+                <li>
+                    <img th:src="@{/images/wexin.jpg}" alt="微信公众号">
+                    <p>微信公众号</p>
+                </li>
+                <li>
+                    <img th:src="@{/images/appdown/appdown-ewm.png}" alt="i记账APP">
+                    <p>i记账APP</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footwork">
+            <p>爱记账客服：（周一至周五9：00-18：00）</p>
+            <p class="footwork-telB">0755-36800222</p>
+            <p><span class="fl">官方QQ：</span>
+            </p>
+            <div style="overflow: hidden;">
+                <span class="footwork-tel">1280680483（客服）</span>
+                <br>
+                <span class="footwork-tel">209690057（交流群）</span></div>
+            <p></p>
+            <p class="footwork-wb">官方微博：<a target="_blank" href="http://weibo.com/2017aijizhang"></a></p>
+        </div>
+    </div>
+    <div class="footerBottom">
+        <!-- Copyright 2010-2017 www.ajzhan.com. All Rights Reserved 粤ICP备17061707号-1 -->
+        <a style="text-decoration:none;color:#999;" href="http://www.miitbeian.gov.cn/" target="_blank">Copyright
+            2010-2017 www.ajzhan.com. All Rights Reserved 粤ICP备17061707号-1</a>
+    </div>
+</div>
+<script th:src="@{/js/member/layer-v3.0.3/layer.js}"></script>
+<script th:src="@{/js/member/common.js}"></script>
+
+<script>
+    BrowserType();
+</script>
+<div class="reg_bg" style="display: none;"></div>
+<div id="j_xieyibox" class="xeyibox" style="display: none;">
+    <h1>i记账会员注册协议<em title="关闭">×</em></h1>
+    <div class="content">
+        <p class="aboutContent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i记账平台的各项服务所有权和运营权归深圳市爱记账科技有限公司所有。i记账所提供的服务将按照其发布的服务条款和相关规定严格执行。用户需要完全同意注册协议以及相关规定，并且完成注册，通过审核后，才能成为i记账平台的合作会员。</p>
+        <p class="aboutContent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了确保i记账平台的质量和信誉，我们将按照以下注册协议审核所有申请加入i记账平台的会员。
+            如果违反以下注册协议，我们可能会停止对网站提供服务和/或禁用平台会员帐户。如果您的帐户被禁用，则无法进一步使用i记账平台提供的服务。</p>
+        <p class="aboutContent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意，我们可能随时更改我们的注册协议和政策，您申请并注册成为i记账平台会员，视为您同意遵守我们在此处发布的最新的注册协议和政策的规定。</p>
+        <p class="aboutContent"><strong>一、申请资格</strong></p>
+        <p class="aboutContent">本服务条款中所指的i记账平台会员是指下述符合要求的个人：</p>
+        <p class="aboutContent">1．1 应为拥有中华人民共和国公民资格，具有完全的民事行为能力，并能够独立承担法律责任的自然人。<br>
+            1．2 i记账平台会员根据平台需要应如实提供身份证号码。<br>
+            1．3 i记账平台有权随时终止与i记账平台会员的合作，合作自i记账平台向i记账平台会员发出通知之日起终止，并不承担任何违约责任。<br>
+            1．4 对于被i记账平台暂时停止或者永久终止帐户的会员，i记账平台不再提供其系列服务。</p>
+        <p class="aboutContent"><strong>二、i记账平台会员注册以及服务流程</strong></p>
+        <p class="aboutContent">2．1 用户按照i记账平台网页提示申请并注册后，i记账平台将在一个工作日内审查资格，并发出确认或者拒绝加入i记账平台的邮件。<br>
+            2．2 审核完成后，该用户即成为i记账平台的有效会员。用户使用自己的会员用户名和密码登录i记账平台后台，自行操作，相关具体介绍请咨询客服。</p>
+        <p class="aboutContent"><strong>三、i记账平台会员的权利</strong></p>
+        <p class="aboutContent">3．1 i记账平台会员在注册登记、得到i记账平台的确认后正式成为i记账平台的有效会员享有i记账平台提供的服务。<br>
+            3．2 i记账平台会员在不违反注册协议或者i记账平台相关政策时，有权按i记账平台服务条款的规定获得i记账平台的服务。</p>
+        <p class="aboutContent"><strong>四、i记账平台会员的义务</strong></p>
+        <p class="aboutContent">4．1
+            如果i记账平台会员的资料、信息等发生变化，包括网页地址、Email、联系电话等，应立刻通过i记账平台后台的个人资料修改及时更改，如由于i记账平台会员资料填写有误而导致的延误i记账平台与i记账平台会员的联系，由此造成的损失由i记账平台会员自己承担。<br>
+            4．2 i记账平台会员应保管好自己的用户名和密码，不得透露给第三方。由于i记账平台会员对自己的帐号保管不当，造成的损失将有爱记账平台会员自己承担。<br>
+            4.3 i记账平台会员应按平台规则支付平台使用费用（如有）。</p>
+        <p class="aboutContent"><strong>五、违约责任</strong></p>
+        <p class="aboutContent">5．1 如i记账平台会员存在违反国家法律法规、政策规定、行业规范、i记账平台规范文件或本协议约定的内容或行为，i记账有权暂停或终止与i记账平台会员的合作。<br>
+            5．2
+            如i记账平台会员利用i记账平台实施了违反国家法律法规、政策规定、行业规范、i记账平台规范文件或本协议约定的内容或行为，对i记账及i记账客户造成负面影响的，或者有侵犯或可能侵犯i记账、i记账客户合法权益，i记账有权暂停或终止i记账平台会员的账户。情节严重，移交相关部门处理。本协议另有约定的，从其约定。<br>
+            5．3
+            i记账平台会员承诺其向i记账平台提交的任何资料，包括但不限于其注册信息、联系方式等的真实性。一旦爱记账平台发现i记账平台会员提供虚假信息或采取其它欺骗手段，有权暂停或终止i记账平台会员的帐户，并保留追究i记账平台会员责任的权利。
+        </p>
+        <p class="aboutContent"><strong>六、i记账平台</strong></p>
+        <p class="aboutContent">6.1 i记账平台是深圳市爱记账科技有限公司旗下所有的一款致力于理财与生活的规划安排，用随时随地在线记账的方式实现平台会员的账务记录。<br>
+            6.2
+            所有平台会员自行操作的个人账务记录不属于i记账平台及深圳市爱记账科技有限公司，由平台会员自行管理及操作。i记账及深圳市爱记账科技有限公司不对平台会员所作的任何记录承担保管、担保、保证或其他有关权利义务归属、资产证明等的义务。
+        </p>
+        <p class="aboutContent"><strong>七、争议解决</strong></p>
+        <p class="aboutContent">因本协议引起的纠纷，约定管辖法院为深圳市南山区人民法院。</p>
+
+        <p class="aboutContent"><strong>八、最终决定权</strong></p>
+        <p class="aboutContent">深圳市爱记账科技有限公司在法律允许范围内保留对i记账平台的注册协议、相关服务政策等内容作即时更改之最终决定权。</p>
+    </div>
+    <div class="btn_agreen">
+        <input type="button" value="同意注册协议并继续" class="btnRegister" id="btn_agreen">
+    </div>
+</div>
+
+<script th:src="@{/js/member/simpleCount.js}"></script>
+<script>
+    $(function () {
+        BrowserType();
+        var oBtn = $('#j_submit'),
+            oImgcode = $('#j_imgcode'),
+            oTel = $('#j_tel'),
+            oTip = $('#j_tip'),
+            oStep = $('#j_step'),
+            one = $('#regmain-one'),
+            two = $('#regmain-two'),
+            three = $('#regmain-three'),
+            telReg = /^(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[0-9])[0-9]{8}$/,
+
+            checkbox = $('#j_checkbox'),
+            flag = false;
+        //第一步验证账号
+        oBtn.on('click', function () {
+            if (flag) {
+                return false;
+            }
+            var imgcodeV = oImgcode.val(),
+                telV = oTel.val();
+            if (imgcodeV === "") {
+                oTip.html('请输入验证码！');
+                return false;
+            } else if (!telReg.test(telV)) {
+                oTip.html('请输入邮箱号！');
+                return false;
+            } else if (!checkbox.hasClass('cur')) {
+                oTip.html('请勾选协议！')
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/passport/submit",
+                data: {'telephone': telV, 'captcha': imgcodeV},
+                beforeSend: function () {
+                    oBtn.html('邮件发送中...');
+                    oTip.html('');
+                    flag = true;
+                    oBtn.addClass('none');
+                },
+                success: function (result) {
+                    if (result.state === 1) {
+                        one.hide();
+                        two.show();
+                        oStep.find('li').eq(1).addClass('cur');
+                        oStep.find('li').eq(2).addClass('cur');
+                        downcount();
+                        $('#j_telH').html(telV.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2'));
+                    } else {
+                        oTip.html(decodeURI(result.info));
+                    }
+                },
+                complete: function (result) {
+                    $('#j_msgcode').val('');
+                    $('#j_password').val('');
+                    flag = false;
+                    oBtn.html('确定');
+                    oBtn.removeClass('none');
+                }
+            });
+        })
+        //设置密码
+        var oBtn2 = $('#j_btn'),
+            oMsgcode = $('#j_msgcode'),
+            oPassword = $('#j_password'),
+            tip2 = $('.tip2'),
+//               passwordReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,14}$/,
+            passwordReg = /^.{6,16}$/,
+            flag2 = false;
+
+        oBtn2.on('click', function () {
+            if (flag2) {
+                return false;
+            }
+            telV = oTel.val();
+            var msgcodeV = oMsgcode.val();
+            var passwordV = oPassword.val();
+
+            if (msgcodeV === "") {
+                tip2.html('请输入验证码！')
+                return false;
+            } else if (passwordV === "") {
+                tip2.html('请设置密码！')
+                return false;
+            } else if (!passwordReg.test(passwordV)) {
+                tip2.html('密码必须包含且只能为6-14位数字和字母！')
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/passport/sendnum",
+                data: {'telephone': telV, 'password': passwordV, 'megnum': msgcodeV},
+                beforeSend: function () {
+                    oBtn2.html('发送中...');
+                    flag2 = true;
+                    oBtn2.addClass('none');
+                },
+                success: function (result) {
+                    if (result.state === 1) {
+                        two.hide();
+                        three.show();
+                        oStep.find('li').eq(3).addClass('cur');
+                        oStep.find('li').eq(4).addClass('cur');
+                        setTimeout(function () {
+                            window.location.href = '/user/index'
+                        }, 3000)
+                    } else {
+                        tip2.html(decodeURI(result.info));
+                    }
+                },
+                complete: function (result) {
+                    oBtn2.html('确定');
+                    flag2 = false;
+                    oBtn2.removeClass('none');
+                }
+            });
+        })
+
+        //重新发送邮箱验证码
+        var getcode = $('#getCode'),
+            flag3 = false;
+        getcode.on('click', function () {
+            if (flag3) {
+                return false;
+            }
+            var imgcodeV = oImgcode.val(),
+                telV = oTel.val();
+            $.ajax({
+                type: "POST",
+                url: "/passport/submit",
+                data: {'captcha': imgcodeV, 'telephone': telV},
+                beforeSend: function () {
+                    getcode.html('发送中...');
+                    getcode.addClass('none');
+                    tip2.html('');
+                    flag3 = true;
+                },
+                success: function (result) {
+                    if (result.state === 1) {
+                        downcount();
+                    }
+                    tip2.html(decodeURI(result.info));
+                },
+                complete: function (result) {
+                    flag3 = false;
+                    getcode.html('发送');
+                    getcode.removeClass('none');
+                }
+            });
+        })
+
+
+        //选择协议
+        checkbox.on('click', function () {
+            $(this).toggleClass('cur');
+        });
+
+        //注册协议弹窗
+        var oXieyiclick = $('#j_xieyiclick'),
+            oXieyibox = $('#j_xieyibox'),
+            oXieyimask = $('.reg_bg');
+        oXieyiclick.click(function () {
+            $('html,body').css({'height': '100%', 'overflow': 'hidden'})
+            oXieyimask.show();
+            oXieyibox.show();
+        });
+        $("#j_xieyibox em,.reg_bg,#btn_agreen").click(function () {
+            if ($(this).attr('id') == 'btn_agreen') {
+                $("#j_checkbox").addClass('cur');
+            }
+            $('html,body').css({'height': 'auto', 'overflow': 'auto'});
+            oXieyimask.hide();
+            oXieyibox.hide();
+        });
+
+        function downcount() {
+            var countDown = $("#countDown");
+            var count = new simpleCount({
+                second: 60,
+                before: function () {
+                    $('.verification-count').show();
+                    countDown.show();
+                    $("#getCode").removeClass('show');
+                },
+                countMethod: function () {
+                    countDown.text(this.getSecond() + "s");
+                },
+                duringTime: 30,
+                during: function () {
+                },
+                after: function () {
+                    countDown.hide();
+                    $('.verification-count').hide();
+                    $("#getCode").addClass('show');
+                },
+                postfix: oTel.val()
+            });
+            count.restart();
+            count.start();
+        }
+
+    })
+</script>
+<div style="display:none">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f63eb839f43fdd479219b949a5ee2fcc";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</div>
+</body>
+</html>

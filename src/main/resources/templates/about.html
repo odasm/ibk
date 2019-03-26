@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://www.ajzhan.com/index/about -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__ajzhan_com" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>爱记账-关于我们-永久免费的在线记账本</title>
+    <meta name="description" content="爱记账是永久免费的在线记账网站，为爱好理财的朋友们提供免费的记账服务，通过在线理财的方式使生活变得更美好。">
+    <meta name="keywords" content="记账,记账本,理财,消费记录,在线记账,在线理财,白领记账,白领理财,爱记账,i记账">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" href="../static/css/global.css">
+    <link th:href="@{/help/css/index.css}" href="../static/help/css/index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{/js/member/layer-v3.0.3/skin/default/layer.css}"
+          href="../static/js/member/layer-v3.0.3/skin/default/layer.css" id="layuicss-skinlayercss">
+    <script th:src="@{http://libs.baidu.com/jquery/2.0.0/jquery.min.js}" charset="utf-8"></script>
+    <script th:src="@{/js/index.js}" charset="utf-8"></script>
+</head>
+
+<body id="warp" data-gr-c-s-loaded="true" style="">
+<div id="header">
+    <div class="headerlogin-cen">
+        <!-- <div class="fl"><a href="/index/about/cooperation" >联系电话：</a>0755-84355709、13510764242</div>
+        <a href="/index/about">关于爱记账</a> | <a href="/index/product">产品介绍</a> | <a href="/index/thanks">感谢有你</a>  | <a href="/index/appdown">APP下载</a> -->
+        <a th:href="@{/}" class="logo"><img th:src="@{/images/LOGO2.png}" alt="爱记账"/></a>
+        <div class="head-btn">
+            <!-- <a href="javascript:;" class="login-showpan head-btnlogin">登录</a>
+            <a href="/passport/reg" class="head-btnreg">注册</a> -->
+            <a href="javascript:" class="login-showpan head-btnlogin">登录</a>
+            <a th:href="@{/register}" class="head-btnreg">注册</a></div>
+        <ul class="header-nav">
+            <li><a th:href="@{/}">首页</a></li>
+            <li><a href="javascript:" class="login-showpan">我要记账</a></li>
+            <li><a th:href="@{/product}">产品介绍</a></li>
+            <li class="cur"><a th:href="@{/about}">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div class="aboutbanner">
+</div>
+
+<div class="aboutcon fix">
+    <div class="aboutleft">
+        <ul>
+            <li><a>About Us</a></li>
+            <li><a th:href="@{/about}" class="cur">关于我们</a></li>
+            <li><a th:href="@{/about/manage}">管理团队</a></li>
+            <li><a th:href="@{/about/thanks}">感谢有您</a></li>
+            <li><a th:href="@{/about/cooperation}">合作联系</a></li>
+            <li><a th:href="@{/about/link}">友情链接</a></li>
+        </ul>
+    </div><!--关于我们-->
+    <div class="aboutright">
+        <h2 class="auboxtit"><span>关于我们</span></h2>
+        <p>爱记账，一款专注于理财与生活规划的产品。2010年，爱记账由一群热爱互联网的同仁因兴趣而推出，至今为止，已为百万用户提供免费的在线记账服务。</p>
+        <p>2017年，爱记账完成升级改版，实现了PC网站、APP和小程序（i记账）多端同步支持，使大家可以随时随地记账、理财，更好地打理生活、规划未来。 </p>
+        <p style="line-height: 22px">
+            爱记账为深圳市爱记账科技有限公司旗下理财应用产品，团队成员不断探索个人理财和互联网金融的结合点，希望能够通过场景记账、推荐式理财等，为用户提供更全面的理财服务。 </p>
+        <!-- <p><strong>注：2014年8月，高搜易金融（www.gaosouyi.com）平台获得深圳知名创投“创东方投资”A轮3000万元投资。</strong></p>
+        <p><img src="/help/images/a2.jpg"/></p> -->
+        <div class="teamer">
+            <p>&nbsp;</p></div>
+    </div>
+    <!--管理团队-->
+    <div class=" clear"></div>
+</div>
+
+<div id="footer">
+    <div class="footerCon">
+        <div class="footnav">
+            <ul>
+                <li>
+                    <a href="https://www.ajzhan.com/index/about" class="footit">关于我们</a><br>
+                    <a href="https://www.ajzhan.com/index/product">产品介绍</a><br>
+                    <a href="https://www.ajzhan.com/index/help">帮助中心</a>
+                </li>
+                <li>
+                    <a href="https://www.ajzhan.com/index/about/cooperation" class="footit">联系我们</a><br>
+                    <a href="https://www.ajzhan.com/index/about/link">友情链接</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footewm">
+            <ul class="footpublic">
+                <li>
+                    <img th:src="@{/images/wexin.jpg}" alt="微信公众号">
+                    <p>微信公众号</p>
+                </li>
+                <li>
+                    <img th:src="@{/images/appdown/appdown-ewm.png}" alt="i记账APP">
+                    <p>i记账APP</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footwork">
+            <p>爱记账客服：（周一至周五9：00-18：00）</p>
+            <p class="footwork-telB">0755-36800222</p>
+            <p><span class="fl">官方QQ：</span>
+            </p>
+            <div style="overflow: hidden;">
+                <span class="footwork-tel">1280680483（客服）</span>
+                <br>
+                <span class="footwork-tel">209690057（交流群）</span></div>
+            <p></p>
+            <p class="footwork-wb">官方微博：<a target="_blank" href="http://weibo.com/2017aijizhang"></a></p>
+        </div>
+    </div>
+    <div class="footerBottom">
+        <!-- Copyright 2010-2017 www.ajzhan.com. All Rights Reserved 粤ICP备17061707号-1 -->
+        <a style="text-decoration:none;color:#999;" href="http://www.miitbeian.gov.cn/" target="_blank">Copyright
+            2010-2017 www.ajzhan.com. All Rights Reserved 粤ICP备17061707号-1</a>
+    </div>
+</div>
+<script th:src="@{/js/member/layer-v3.0.3/layer.js}"></script>
+<script th:src="@{/js/member/common.js}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+/*浮动提示框*/
+html, body {
+    margin:0;
+    /*overflow:hidden;
+    min-height: 100%;*/
+    _height:100%;
+}
+.dialog_shadow {background:#444;overflow:visible;z-index:998;position:absolute;left:3px;top:5px;
+   opacity: 0.1;                 /* Firefox, Safari(WebKit), Opera)*/
+   filter: "alpha(opacity=10)"; /* IE 8 */
+   filter: alpha(opacity=10);   /* IE 4-7 */
+   z-index:996;
+   zoom: 1;
+}
+.dialog_box {overflow:visible;z-index:999;position:absolute;left:250px;top:20px;}
+.dialog_title {height:30px;background:#eee;font-size:14px;text-indent:10px;line-height: 30px; font-weight:bold;}
+.dialog_mask {position: absolute;top:0px;left:0px;background:#ddd;margin:0;padding:0;height:100%;width:100%;min-height: 100%;_height:100%;}
+.dialog_layer {position:relative;z-index:997;border:1px solid #ddd;background:#fff;height:100%;}
+.dialog_close{position:absolute;top:8px;right:10px;display:inline;height:15px;width:15px;cursor:pointer;line-height:15px;text-align:center;}
+.dialog_close:hover {background:#999;color:#fff;}
+.dialog_content {overflow-y: auto;margin:5px;font-size:12px;line-height:18px;}
+.dialog_button {height:30px;margin:5px;text-align:center;line-height:30px;}
+.dialog_mask {background:#000;opacity: 0.3;                 /* Firefox, Safari(WebKit), Opera)*/
+   filter: "alpha(opacity=30)"; /* IE 8 */
+   filter: alpha(opacity=30);   /* IE 4-7 */
+   zoom: 1;position:absolute;left:0;top:0;height:100%;width:100%;z-index:100;}
+* html .ie6_select_mask { position:absolute;height:100%;width:100%;left:-1px;top:-1px; }
+
+/*样式可应用在style中*/
+.no_title .dialog_title {display:none;}
+.no_button .dialog_button {display:none;}
+.no_shadow .dialog_shadow{background: none;}
+.no_border{border:none;}
+.no_close .dialog_close{display:none;}
+.no_ok .dialog_ok{display:none;}
+.no_cancel .dialog_cancel{display:none;}
+
+#idEditCategoryDlg{ margin:10px;overflow-y:hidden!important; height:auto!important;}
