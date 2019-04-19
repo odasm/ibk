@@ -13,7 +13,7 @@ public class WebApplicationConfig implements WebMvcConfigurer {
 
 
     /**
-     * 设置404处理页面
+     * 设置404处理页面 404跳转首页
      * @return
      */
     @Bean
