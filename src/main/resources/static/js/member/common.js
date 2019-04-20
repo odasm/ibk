@@ -113,7 +113,7 @@ $(function(){
            shadeClose: false,
            shade: 0.5,
            area: ['320px', '369px'],
-           content: '/passport/loginframe', //iframe的url
+           content: '/passport/loginFrame', //iframe的url
            cancel: function(index, layero){ 
              DelCookie('user_id');                                 
            }    

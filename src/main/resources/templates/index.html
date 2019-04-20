@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0023)https://www.ajzhan.com/ -->
-<html class="gr__ajzhan_com" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -22,7 +21,7 @@
             height: 100%;
         }
     </style>
-    <link rel="stylesheet" th:href="@{/js/member/layer-v3.0.3/skin/default/layer.css}" id="layuicss-skinlayercss">
+    <link rel="stylesheet" th:href="@{/js/member/layer-v3.0.3/skin/default/layer.css(v=3.0.3303)}" id="layuicss-skinlayercss">
 </head>
 <body style="min-width: 1200px;" data-gr-c-s-loaded="true">
 <div id="header">
@@ -34,7 +33,7 @@
             <!-- <a href="javascript:;" class="login-showpan head-btnlogin">登录</a>
             <a href="/passport/reg" class="head-btnreg">注册</a> -->
             <a href="javascript:" class="login-showpan head-btnlogin">登录</a>
-            <a th:href="@{/register}" class="head-btnreg">注册</a></div>
+            <a th:href="@{/passport/register}" class="head-btnreg">注册</a></div>
         <ul class="header-nav">
             <li class="cur"><a th:href="@{/}">首页</a></li>
             <li><a href="javascript:" class="login-showpan">我要记账</a></li>

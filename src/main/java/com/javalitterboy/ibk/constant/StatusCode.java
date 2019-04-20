@@ -8,7 +8,11 @@ public class StatusCode {
     /**
      * 成功
      */
-    public static int SC_OK = 200;
+    public static int SC_OK = 1;
+    /**
+     * 失败
+     */
+    public static int SC_ERROR = -1;
     /**
      * 未授权
      */

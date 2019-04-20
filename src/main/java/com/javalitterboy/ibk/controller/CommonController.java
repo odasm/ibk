@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 @Controller
 @RequestMapping("/common")
-public class CommonController {
+public class CommonController extends BaseController {
 
     private final ValidImage validImage;
 

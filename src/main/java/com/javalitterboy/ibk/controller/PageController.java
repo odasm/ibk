@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/")
-public class PageController {
+public class PageController extends BaseController {
 
     @GetMapping(value = {"/","/index"})
     public String index(){
@@ -24,15 +24,5 @@ public class PageController {
     @GetMapping(value = {"/about"})
     public String about(){
         return "about";
-    }
-
-    @GetMapping(value = {"/login"})
-    public String login(){
-        return "login";
-    }
-
-    @GetMapping(value = {"/register"})
-    public String register(){
-        return "register";
     }
 }

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>爱记账-登录-永久免费的在线记账本</title>
+    <meta name="description" content="爱记账是永久免费的在线记账网站，为爱好理财的朋友们提供免费的记账服务，通过在线理财的方式使生活变得更美好。">
+    <meta name="keywords" content="记账,记账本,理财,消费记录,在线记账,在线理财,白领记账,白领理财,爱记账,i记账">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" href="../static/css/global.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reg.css}">
+    <script th:src="@{http://libs.baidu.com/jquery/2.0.0/jquery.min.js}" charset="utf-8"></script>
+    <style>
+        html, body {
+            height: 100%;
+            background-color: transparent;
+        }
+
+        iframe {
+            height: 100%;
+            background-color: transparent;
+        }
+    </style>
+    <link rel="icon"
+          href="data:image/png;base64,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"
+          type="image/png" sizes="256x256">
+    <link rel="icon" href="https://www.ajzhan.com/favicon.ico">
+</head>
+<body>
+<!-- 登录 -->
+<div class="loginpanel fr" id="j_loginpanel">
+        <span class="loginTip" id="j_loginTip" onselectstart="return false;" style="-moz-user-select:none;">
+           <span class="wx">微信登录</span>
+           <span class="zh">账号登录</span>
+        </span>
+    <h2>登录爱记账</h2>
+    <div style="height: 183px;">
+        <div class="accountLogin" id="j_accountLogin">
+            <div id="j_tip" class="login-tip"></div>
+            <input type="text" placeholder="邮箱/手机号" class="userinput inputlight" id="j_loginUser" autocomplete="off">
+            <input type="password" placeholder="6-14位字符的密码" class="passwordinput mt16 inputlight" id="j_loginpas">
+            <div class="fix">
+                <!-- <div class="question fl">无法登录？<div class="question-tip"><span></span>
+                  由于系统升级，暂时不可通过第三方登录，请新老用户通过账号登录！<br>
+                  常见问题及解决办法。<br>
+                  1、忘记登录密码，可点击登录框右下角的“忘记密码”，进入找回密码页面进行重新设置；<br>
+                  2、忘记邮箱账户，可联系客服QQ：1280680483，后台协助解决。
+                </div></div> -->
+                <a href="javascript:;" class="fr forgetpass" onclick="parent.location.href='/passport/find';">忘记密码？</a>
+            </div>
+            <a href="javascript:;" class="botton" id="login-btn">登录</a>
+        </div>
+    </div>
+    <div class="wxloginWrap" id="wxloginWrap" style="display: none;">
+        <div id="wxlogin">
+<!--待实现-->
+<!--            <iframe src="./login_files/qrconnect.html" frameborder="0" scrolling="no" width="300px"-->
+<!--                    height="400px"></iframe>-->
+        </div>
+        <h2 class="wxH2">微信扫码登录</h2>
+    </div>
+    <div class="wx-reg">
+        <a href="javascript:;" class="fr" onclick="parent.location.href='/passport/register';">立即注册</a>
+    </div>
+</div>
+<!-- 邮箱验证 -->
+<div class="layer-planel" id="j_layer-planel" style="display:none;">
+    <h2>邮箱验证 </h2>
+    <div class="layer-planelC">
+        <div class="layer-planelC-ver">
+            <p>为了您的账户安全，请验证邮箱号</p>
+            <div class="layertip" id="j_layertip"></div>
+            <ul class="w277 mgc">
+                <li class="fix">
+                    <div class="w160 fl">
+                        <input type="text" class="input" maxlength="4" name="captcha" id="j_imgcode"
+                               placeholder="图片验证码">
+                    </div>
+                    <img th:src="@{/common/captcha}" id="captchaimg" alt="点击刷新验证码" class="regmain-captcha fr"
+                         maxlength="4"
+                         style="width:81px;height: 31px;border:1px solid #a6866a;margin-top: 7px;float: right;cursor: pointer;"
+                         onclick="document.getElementById('captchaimg').src='/common/captcha?tm='+Math.random()">
+                </li>
+                <li>
+                    <input type="email" class="input" name="telephone" placeholder="输入您的邮箱号码" id="j_tel">
+                </li>
+                <li>
+                    <div class="verification-wrap fix">
+                        <input type="text" class="verification inputlight" id="j_megcode" name="megnum"
+                               placeholder="邮箱验证码" maxlength="6">
+                        <span class="verification-count" style="display: none"><span id="countDown">60s</span>后重发</span>
+                        <span class="verification-again show" id="getCode">发送验证码</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;" class="botton" id="layer-btn">确定</a>
+                </li>
+            </ul>
+        </div>
+        <div class="layer-planelC_success" style="display: none;">
+            <h3>验证成功</h3>
+            <a href="javascript:;" class="botton" onclick="parent.location.href='/user/tally'">开始记账</a>
+        </div>
+    </div>
+</div>
+<!-- 注册成功 -->
+<div class="layer-planel" style="display: none;">
+    <h2>注册成功</h2>
+    <div class="layer-planelC">
+        <div class="layer-planelC_success2">
+            <h3>注册成功</h3>
+            <a href="javascript:;" class="botton" onclick="parent.location.href='/user/tally'">开始记账</a>
+        </div>
+    </div>
+</div>
+</body>
+
+<script th:src="@{https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js}"></script>
+<script th:src="@{/js/member/simpleCount.js}"></script>
+<script>
+    $(function () {
+        //点击登录
+        var btn = $('#login-btn'),
+            user = $('#j_loginUser'),
+            pass = $('#j_loginpas'),
+            tip = $('#j_tip'),
+            phoneReg = /^(13[0-9]|15[0-9]|17[0-9]|18[0-9]|14[0-9])[0-9]{8}$/,
+            mailReg = /^\w+([-+.]+\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+            flag = false,
+            telreg = $('#j_layer-planel'),
+            logpan = $('#j_loginpanel');
+
+        btn.on('click', function () {
+            if (flag) {
+                return false;
+            }
+            var userV = user.val(),
+                passV = pass.val();
+            if (userV == "") {
+                tip.html('请输入用户账号！')
+                return false;
+            } else if (!(phoneReg.test(userV) || mailReg.test(userV))) {
+                tip.html('用户名格式不正确！')
+                return false;
+            } else if (passV == "") {
+                tip.html('请输入密码！')
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/passport/login_submit",
+                data: {'username': userV, 'pwd': passV},
+                beforeSend: function () {
+                    btn.html('登录中...');
+                    tip.html('');
+                    flag = true;
+                    btn.addClass('none');
+                },
+                success: function (result) {
+                    if (result.state == 2) {
+                        window.parent.location.href = '/user/tally';
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                        //window.location.href = '/user/tally';
+                    } else if (result.state == 1) {
+                        logpan.hide();
+                        telreg.show();
+                    } else if (result.state == 3) {
+                        window.parent.location.href = '/mygladmin';
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                    }
+                    tip.html(decodeURI(result.info));
+                },
+                complete: function (result) {
+                    flag = false;
+                    btn.removeClass('none');
+                    btn.html('登录');
+                }
+            });
+        })
+
+        //弹层点击发送验正码
+        var layerbtn = $('#layer-btn'),
+            layerImg = $('#j_imgcode'),
+            layertel = $('#j_tel'),
+            layermeg = $('#j_megcode'),
+            layertip = $('#j_layertip'),
+            // ver = $('#j_ver'),
+            flag2 = false;
+
+        var getcode = $('#getCode'),
+            flag3 = false;
+        getcode.on('click', function () {
+            if (flag3) {
+                return false;
+            }
+            var layerImgV = layerImg.val(),
+                layertelV = layertel.val();
+
+            if (layerImgV == "") {
+                layertip.html('请输入图片验证码！')
+                return false;
+            } else if (layertelV == "") {
+                layertip.html('请输入邮箱号码！')
+                return false;
+            } else if (!phoneReg.test(layertelV)) {
+                layertip.html("邮箱号码格式不正确！");
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/passport/submit",
+                data: {'captcha': layerImgV, 'telephone': layertelV},
+                beforeSend: function () {
+                    getcode.html('发送中...');
+                    getcode.addClass('none');
+                    layertip.html('');
+                    flag3 = true;
+                },
+                success: function (result) {
+                    if (result.state == 1) {
+                        downcount();
+                    }
+                    layertip.html(decodeURI(result.info));
+                },
+                complete: function (result) {
+                    flag3 = false;
+                    getcode.html('发送');
+                    getcode.removeClass('none');
+                }
+            });
+        })
+
+        //弹层输入处理
+        layerbtn.on('click', function () {
+            if (flag2) {
+                return false;
+            }
+            var layerImgV = layerImg.val(),
+                layertelV = layertel.val(),
+                layermegV = layermeg.val();
+
+            if (layerImgV == "") {
+                layertip.html('请输入图片验证码！')
+                return false;
+            } else if (layertelV == "") {
+                layertip.html('请输入邮箱号码！')
+                return false;
+            } else if (!phoneReg.test(layertelV)) {
+                layertip.html("用户名格式不正确！");
+                return false;
+            } else if (layermegV == "") {
+                layertip.html("请输入邮箱验证码！");
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/passport/bindTel",
+                data: {'captcha': layerImgV, 'telephone': layertelV, 'email': user.val(), 'megnum': layermegV},
+                beforeSend: function () {
+                    layerbtn.html('验证中...');
+                    layertip.html('');
+                    flag2 = true;
+                    layerbtn.addClass('none');
+                },
+                success: function (result) {
+                    if (result.state == 1) {
+                        $('.layer-planelC-ver').hide();
+                        $('.layer-planelC_success').show();
+                    }
+                    layertip.html(decodeURI(result.info));
+                },
+                complete: function (result) {
+                    flag2 = false;
+                    layerbtn.removeClass('none');
+                    layerbtn.html('确定');
+                }
+            });
+        })
+
+        //倒计时方法
+        function downcount() {
+            var countDown = $("#countDown"),
+                countDownW = $(".verification-count");
+
+            var count = new simpleCount({
+                second: 60,
+                before: function () {
+                    countDownW.show();
+                    $("#getCode").removeClass('show');
+                },
+                countMethod: function () {
+                    countDown.text(this.getSecond() + "s");
+                },
+                duringTime: 30,
+                during: function () {
+                },
+                after: function () {
+                    countDownW.hide();
+                    $("#getCode").addClass('show');
+                },
+                postfix: layertel.val()
+            });
+            count.restart();
+            count.start();
+        }
+
+        $(".loginpanel input").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#login-btn").trigger('click');
+            }
+        });
+
+        //删除cookie方法
+        function GetCookieValue(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function DelCookie(name) {
+            var exp = new Date();
+            exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
+            var cval = GetCookieValue(name);
+            // document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+            // document.cookie=name + "=" + cval + ";expires="+exp.toGMTString()+";path=/;domain=ajzhan.com";
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/;domain=www.ajzhan.com";
+        }
+
+        // 微信登录
+        var wxlog = $('#wxloginWrap'),
+            zhlog = $('#j_accountLogin');
+        $('#j_loginTip').click(function (e) {
+            var e = e || window.event;
+            if (e.currentTarget.className.indexOf('tog') < 0) {
+                $(this).toggleClass('tog');
+                zhlog.hide();
+                wxlog.show();
+            } else {
+                $(this).toggleClass('tog');
+                wxlog.hide();
+                zhlog.show();
+            }
+        })
+
+        var obj = new WxLogin({
+            id: "wxlogin",
+            appid: 'wx9e137461c3ed2be0',
+            scope: "snsapi_login",
+            redirect_uri: 'http://www.ajzhan.com/multi_redirect.html?appid=wx9e137461c3ed2be01=ajz=1scope=snsapi_login1=ajz=1state=ef3dj1=ajz=1redirect_uri=http%3A%2F%2Fwww.ajzhan.com/passport/wLogin?',
+            state: "",
+            style: "",
+            href: "data:text/css;base64,LmltcG93ZXJCb3ggLnFyY29kZSB7d2lkdGg6IDIwMHB4O30uaW1wb3dlckJveCAudGl0bGUge2Rpc3BsYXk6IG5vbmU7fS5pbXBvd2VyQm94IC5pbmZvIHt3aWR0aDogMjAwcHg7ZGlzcGxheTogbm9uZTt9LnN0YXR1c19pY29uIHtkaXNwbGF577yabm9uZX0uaW1wb3dlckJveCAuc3RhdHVzIHt0ZXh0LWFsaWduOiBjZW50ZXI7fQ=="
+        });
+    })
+</script>
+</html>

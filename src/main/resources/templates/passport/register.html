@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0035)https://www.ajzhan.com/passport/reg -->
-<html class="gr__ajzhan_com" xmlns:th="http://www.thymeleaf.org" lang="zh">
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
@@ -8,7 +7,7 @@
     <title>爱记账-注册-永久免费的在线记账本</title>
     <meta name="description" content="爱记账是永久免费的在线记账网站，为爱好理财的朋友们提供免费的记账服务，通过在线理财的方式使生活变得更美好。">
     <meta name="keywords" content="记账,记账本,理财,消费记录,在线记账,在线理财,白领记账,白领理财,爱记账,i记账">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" href="../static/css/global.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" href="../../static/css/global.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/reg.css}">
     <link rel="stylesheet" th:href="@{/js/member/layer-v3.0.3/skin/default/layer.css}" id="layuicss-skinlayercss">
     <link rel="icon"
@@ -21,7 +20,7 @@
 <body data-gr-c-s-loaded="true" style="">
 <div id="header">
     <div class="header-cen">
-        <a href="https://www.ajzhan.com/"><img th:src="@{/images/LOGO2.png}" alt="爱记账"></a>
+        <a th:href="@{/}"><img th:src="@{/images/LOGO2.png}" alt="爱记账"></a>
         <span class="header-line"></span>
         <span class="header-name">注册</span>
         <span class="fr header-loginlink">已有账号？  <a href="javascript:;" class="login-showpan">登录</a></span>
@@ -63,7 +62,7 @@
                     <li class="fix">
                         <div class="verification-wrap fix">
                             <input type="text" class="verification inputlight " id="j_msgcode" name="megnum"
-                                   placeholder="邮件验证码" maxlength="4">
+                                   placeholder="邮件验证码" maxlength="6">
                             <span class="verification-count"><span id="countDown">60s</span>后重发</span>
                             <span class="verification-again" id="getCode">发送</span>
                         </div>

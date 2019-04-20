@@ -2,16 +2,21 @@ package com.javalitterboy.ibk.exception;
 
 import com.javalitterboy.ibk.constant.StatusCode;
 
+/**
+ * @author 14183
+ */
 public class ServiceException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     private int code;
 
     public ServiceException() {
+        super("未知错误");
+        this.code = StatusCode.SC_ERROR;
     }
 
     public ServiceException(String message) {
         super(message);
-        this.code = StatusCode.SC_OK;
+        this.code = StatusCode.SC_ERROR;
     }
 
     public ServiceException(String message, Throwable e) {
