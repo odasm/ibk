@@ -71,7 +71,7 @@ public class CommonDaoImpl implements CommonDao {
 	}
 
 	@Override
-	public List<? extends Object> findByHql(String hql, String paramKey, Object paramValue) {
+	public List<? extends BaseEntity> findByHql(String hql, String paramKey, Object paramValue) {
 		Query query = entityManager.createQuery(hql);
 		if(null != paramKey){
 			query.setParameter(paramKey, paramValue);
@@ -97,12 +97,13 @@ public class CommonDaoImpl implements CommonDao {
 
 	@Override
 	public List<? extends BaseEntity> findByHql(Class<?> clazz, String whereSub, String paramKey, Object paramValue) {
-		return null;
+		String hql = "FROM " + clazz.getSimpleName() + " obj WHERE " + whereSub;
+		return findByHql(hql, paramKey,paramValue);
 	}
 
 	@Override
-	public Object findUniqueByHql(String hql, String paramKey, Object paramValue) {
-		List<Object> entitys = (List<Object>) findByHql(hql, paramKey, paramValue);
+	public BaseEntity findUniqueByHql(String hql, String paramKey, Object paramValue) {
+		List<BaseEntity> entitys = (List<BaseEntity>) findByHql(hql, paramKey, paramValue);
 		if (entitys.size() > 1) {
 			throw new ServiceException("查询结果不唯一");
 		}
@@ -114,7 +115,8 @@ public class CommonDaoImpl implements CommonDao {
 
 	@Override
 	public <T extends BaseEntity> T findUniqueByHql(Class<T> clazz, String whereSub, String paramKey, Object paramValue) {
-		return null;
+		String hql = "FROM " + clazz.getSimpleName() + " obj WHERE " + whereSub;
+		return (T) findUniqueByHql(hql, paramKey,paramValue);
 	}
 
 	@Override
