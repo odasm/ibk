@@ -1,7 +1,7 @@
 #!/bin/bash
 log_dir="/var/log/ibk"
 log_file="ibk.log"
-exe_file="/usr/local/ibk.jar"
+exe_file="/usr/local/ibk/ibk.jar"
 param="-Ddb.url=$IBK_DB_URL"
 param="$param -Ddb.user=$IBK_DB_USER"
 param="$param -Ddb.pass=$IBK_DB_PASS"
