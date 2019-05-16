@@ -15,5 +15,6 @@ if [[ -f "$log_dir/$log_file" ]];then
     mv "$log_dir/$log_file" "$log_dir/$(date "+%Y-%m-%d_%H:%M:%S")_$log_file"
 fi
 echo "$(date "+%Y-%m-%d %H:%M:%S")  start Application" >> "$log_dir/$log_file"
+echo "$(date "+%Y-%m-%d %H:%M:%S")  java -jar $param $exe_file >> $log_dir/$log_file &" >> "$log_dir/$log_file"
 nohup java -jar ${param} ${exe_file} >> "$log_dir/$log_file" &
 echo 'deploy finish'
