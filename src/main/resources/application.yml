@@ -2,9 +2,9 @@ server:
   port: 8025
 spring:
   datasource:
-    url: ${IBK_DB_USER}
-    username: ${IBK_DB_USER}
-    password: ${IBK_DB_PASS}
+    url: ${db.url}
+    username: ${db.user}
+    password: ${db.pass}
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     database: mysql
@@ -19,9 +19,9 @@ spring:
     cache: false
   mail:
     name: i记账
-    host: ${IBK_EMAIL_HOST}
-    username: ${IBK_EMAIL_USER}
-    password: ${IBK_EMAIL_PASS}
+    host: ${email.host}
+    username: ${email.user}
+    password: ${email.pass}
     properties:
       mail:
         debug: true

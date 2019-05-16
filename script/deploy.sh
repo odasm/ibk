@@ -22,23 +22,15 @@ else
 fi
 
 echo "copy $NAME"
-cp target/${NAME}-${VERSION}.jar /usr/local/${NAME}.jar
-chmod +x /usr/local/${NAME}.jar
-
-if [[ -f "/usr/local/$NAME.jar" ]];then
-    echo "stop Application"
-    pid=`ps -ef | grep ${NAME} | grep -v grep | awk '{print $2}'`
-    echo "pid：$pid"
-    if [[ -n "$pid" ]];then
-        kill -9 ${pid}
-    fi
-
-    echo "start Application"
-    echo "$(date "+%Y-%m-%d %H:%M:%S") start Application" >> /var/log/${NAME}.log
-    nohup java -jar /usr/local/${NAME}.jar >> /var/log/${NAME}.log &
-    ps -ef | grep ${NAME}
-    echo 'deploy finish'
-else
-    echo "${NAME}.jar not found"
-    exit 3
+if [[ ! -d "/usr/local/$NAME" ]];then
+    mkdir /usr/local/${NAME}
 fi
+cp -f target/${NAME}-${VERSION}.jar /usr/local/${NAME}/ibk.jar
+cp -f script/start.sh /usr/local/${NAME}/start.sh
+cp -f script/stop.sh /usr/local/${NAME}/stop.sh
+chmod +x /usr/local/${NAME}/*.sh
+
+echo "stop Application"
+/usr/local/${NAME}/stop.sh
+echo "start Application"
+/usr/local/${NAME}/start.sh
