@@ -1,6 +1,6 @@
 #!/bin/bash
 # 加载环境变量
-./etc.profile
+source /etc/profile
 log_dir="/var/log/ibk"
 log_file="ibk.log"
 exe_file="/usr/local/ibk/ibk.jar"
